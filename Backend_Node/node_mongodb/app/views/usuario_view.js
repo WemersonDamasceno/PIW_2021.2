@@ -3,7 +3,7 @@ function renderUsuario(usuario){
         id: usuario._id,
         nome: usuario.nome,
         email: usuario.email,
-        senha: usuario.senha,
+        //senha: usuario.senha,
     }
 }
 module.exports.renderUsuario = renderUsuario;

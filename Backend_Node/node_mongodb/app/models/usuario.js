@@ -11,9 +11,10 @@ module.exports = function(){
             required: true,
         },
         senha: {
-            type: 'Number',
+            type: 'String',
             required: true,
         },
+       
     });
     return mongoose.model("Usuario", schema);
 }();

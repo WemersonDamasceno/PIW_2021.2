@@ -10,6 +10,10 @@ module.exports = function(){
             type: 'Number',
             required: true,
         },
+        id_usuario: {
+            type: 'String',
+            required: true,
+        },
     });
     return mongoose.model("Posts", schema);
 }();

@@ -1,3 +1,7 @@
+const { db } = require("../models/posts.js");
+const Posts = require("../models/posts.js");
+const ViewPost = require("../views/posts_view.js");
+
 let posts = [
     {
         id: 1,
@@ -12,40 +16,43 @@ let posts = [
 ];
 
 module.exports.putPosts = function(req,res){
-    const {id, texto, likes} = req.body;
-    const post = {
-        id,
-        texto,
-        likes
-    }
-    posts.push(post);
-    return res.status(201).json(post)
+    let post = req.body;
+    let promisse = Posts.create(post);
+    //o then é quando o banco retorna
+    promisse.then(function(post){
+        res.status(201).json(ViewPost.renderOnePosts(post));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Ocorreu um erro na requisição", error: error.message});
+    });
 }
 
 module.exports.getAllPosts = function(req, res){
-    res.json(posts);
+    let promisse = Posts.find().exec();
+    promisse.then(function(posts){
+        res.status(200).json(ViewPost.renderListPosts(posts));
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Ocorreu um erro.", error: error.message});
+    });
 }
 
 module.exports.getPostsById = function(req, res){
     let id = req.params.id;
-    let post = posts.find(function(post){
-        return post.id == id;
-    })
-
-    if(post){
-        res.json(post);
-    }else{
-        res.status(404).json({mensagem: "Post não foi encontrado!"})
-    }
-
+    let promisse = Posts.findById(id).exec();
+    promisse.then(function(post){
+        res.status(200).json(ViewPost.renderOnePosts(post));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Ocorreu um erro!", error: error.message});
+    });
 }
 
 module.exports.deletePost = function(req, res){
     let id = req.params.id;
-    posts = posts.filter(function(post){
-        return post.id != id;
+    let promisse = Posts.findByIdAndDelete(id);
+    promisse.then(function(post){
+        res.status(200).json(ViewPost.renderOnePosts(post));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Ocorreu um erro.", error: error.message});
     });
-    res.json({mensagem: "O Post foi removido"});
 }
 
 
