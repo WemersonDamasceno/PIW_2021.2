@@ -1,19 +1,8 @@
 const { db } = require("../models/posts.js");
 const Posts = require("../models/posts.js");
+const Comentario = require("../models/comentario");
 const ViewPost = require("../views/posts_view.js");
-
-let posts = [
-    {
-        id: 1,
-        texto: "Oi, tudo bem?",
-        likes: 6,
-    },
-    {
-        id: 2,
-        texto: "O sangue de jesus tem poder",
-        likes: 322,
-    },
-];
+const ViewComentario = require("../views/comentario_view");
 
 module.exports.putPosts = function(req,res){
     let post = req.body;
@@ -55,5 +44,15 @@ module.exports.deletePost = function(req, res){
     });
 }
 
+//BuscarComentariosPostById
+module.exports.BuscarComentariosPostById = function(req, res){
+    let id = req.params.id;
+    let promisse = Comentario.find({posts:id});
+    promisse.then(function(comentarios){
+        res.status(200).json(ViewComentario.renderListComentarios(comentarios));
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Ocorreu um erro", error: error.message});
+    });
+}
 
 

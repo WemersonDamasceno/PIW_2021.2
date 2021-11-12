@@ -9,5 +9,9 @@ module.exports = function(app){
     app.get("/api/usuarios/:id", controller.getUserById);
     //4 - DELETE Remove usuário com id dado
     app.delete("/api/usuarios/:id", controller.deleteUser);
+    //5 - Buscar os comentarios feitos pelo user
+    app.get("/api/usuarios/:id/comentarios", controller.buscarComentarios);
+    //5 - Buscar os posts feitos pelo user
+    app.get("/api/usuarios/:id/posts", controller.buscarPostsById);
 
 }

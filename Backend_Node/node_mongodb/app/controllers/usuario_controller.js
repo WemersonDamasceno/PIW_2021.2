@@ -1,6 +1,9 @@
 const { db } = require("../models/usuario");
 const Usuario = require("../models/usuario");
 const ViewUsuario = require("../views/usuario_view.js");
+const ViewPosts = require("../views/posts_view.js");
+const Comentario = require("../models/comentario");
+const Posts = require("../models/posts");
 
 module.exports.putUser = function(req, res){
     let usuario = req.body;
@@ -40,5 +43,25 @@ module.exports.deleteUser = function(req,res){
     }).catch(function(error){
         res.status(400).json({mensagem: "Ocorreu um erro.", error: error.message});
     });
-   
+}
+
+module.exports.buscarComentarios = function(req, res){
+    let id = req.params.id;
+    let promisse = Comentario.find({usuario:id}).populate("Posts").exec();
+    promisse.then(function(comentarios){
+        res.status(200).json(comentarios);
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Ocorreu um erro", error: error.message});
+    })
+}
+
+
+module.exports.buscarPostsById = function(req, res){
+    let id = req.params.id;
+    let promisse = Posts.find({id_usuario:id});
+    promisse.then(function(posts){
+        res.status(200).json(ViewPosts.renderListPosts(posts));
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Ocorreu um erro", error: error.message});
+    })
 }

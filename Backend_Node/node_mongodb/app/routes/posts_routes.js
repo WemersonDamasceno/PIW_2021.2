@@ -9,4 +9,6 @@ module.exports = function(app){
     app.get("/api/posts/:id", controller.getPostsById);
     //4 - DELETE Remove post com id dado
     app.delete("/api/posts/:id", controller.deletePost);
+    //4 - Buscar todos os comentarios do post
+    app.get("/api/posts/:id/comentarios", controller.BuscarComentariosPostById);
 }
