@@ -1,6 +1,8 @@
 let controller = require("../controllers/usuario_controller");
-
+let auth = require("../controllers/auth");
 module.exports = function(app){
+    //0 - Login
+    app.post("/api/usuarios/signin", auth.logar);
     //1 - POST Recebe usuário e armazena
     app.post("/api/usuarios", controller.putUser);
     //2 - GET Retorna todos os usuários
