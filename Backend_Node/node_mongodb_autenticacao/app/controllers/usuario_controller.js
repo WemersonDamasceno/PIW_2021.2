@@ -4,9 +4,14 @@ const ViewUsuario = require("../views/usuario_view.js");
 const ViewPosts = require("../views/posts_view.js");
 const Comentario = require("../models/comentario");
 const Posts = require("../models/posts");
+const bcrypt = require("bcrypt");
 
 module.exports.putUser = function(req, res){
-    let usuario = req.body;
+    let usuario = {
+        nome : req.body.nome,
+        email: req.body.email,
+        senha: bcrypt.hashSync(req.body.senha, 10),
+    }
     let promisse = Usuario.create(usuario);
     //o then é quando o banco retorna
     promisse.then(function(usuario){
