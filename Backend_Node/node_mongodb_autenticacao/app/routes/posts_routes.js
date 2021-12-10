@@ -1,6 +1,7 @@
 let controller = require("../controllers/posts_controller");
-
+const auth = require("../controllers/auth");
 module.exports = function(app){
+    app.use("/api/posts", auth.checar) 
     //1 - POST Recebe post e armazena
     app.post("/api/posts", controller.putPosts);
     //2 - GET Retorna todos os posts

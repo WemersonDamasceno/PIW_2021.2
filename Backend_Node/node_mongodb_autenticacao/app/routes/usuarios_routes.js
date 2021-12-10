@@ -5,6 +5,9 @@ module.exports = function(app){
     app.post("/api/usuarios/signin", auth.logar);
     //1 - POST Recebe usuário e armazena
     app.post("/api/usuarios", controller.putUser);
+    
+    //Checar token
+    app.use("/api/usuarios", auth.checar);
     //2 - GET Retorna todos os usuários
     app.get("/api/usuarios", controller.listUsers);
     //3 - GET Retorna usuário com um dado id
