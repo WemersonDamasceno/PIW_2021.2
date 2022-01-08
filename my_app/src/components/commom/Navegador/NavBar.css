@@ -1,0 +1,46 @@
+.navegador{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+
+img{
+    height: 60px;
+    display: flex;
+    padding: 5px;
+}
+
+
+a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+#Nome{
+    color: rgb(0, 0, 0);
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+#divIconsNav{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#iconNav{
+    padding-top: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+#divNomeImg{
+    display: flex;
+    height: 60px;
+    width: 160px;
+}

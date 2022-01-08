@@ -1,0 +1,55 @@
+.post{
+    width: 700px;
+    background-color: #282828;
+    color: white;
+    border: 1.5px;
+    border-radius: 7px;
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+}
+
+.post .user{
+    font-size: 1.2rem;
+    font-weight: 900;
+    display: flex;
+
+}
+
+.post .texto {
+    text-align: justify;
+    font-size: 1rem;
+    margin:10px;
+}
+
+.post .likes{
+    margin-top: 2px;
+    margin:10px;
+}
+
+.post .likes button{
+    width:50px;
+    height:40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: -20px;
+    border-radius: 10px;
+
+}
+
+#perfilPost{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+#iconLike{
+    margin-right: 10px;
+}
+
+#iconLikeBtn{
+    display: flex;
+    margin-left: 10px;
+}
