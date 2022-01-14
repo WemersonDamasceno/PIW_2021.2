@@ -1,0 +1,29 @@
+.paginaPost{
+    width: 700px;
+    margin: 0 auto;
+}
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+.container_texto{
+    width:650px;
+    height:200px;
+    border-radius: 7px;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+.botao{
+    width:75px;
+    height:40px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

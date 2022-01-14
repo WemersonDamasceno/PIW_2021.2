@@ -4,43 +4,54 @@
     justify-content: space-between;
 }
 
+.navegador.divIconsNav .link-nav.active {
+    background-color: rgb(41, 32, 117);
+    color: brown;
+}
+
 img{
     height: 60px;
     display: flex;
     padding: 5px;
 }
-
-
-a{
-    color: black;
+.link-nav{
+    color:black;
     text-decoration: none;
+    font-size: 25px;
     text-align: center;
+    height: 80px;
+    padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
-    font-weight: bold;
-    font-size: large;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-#Nome{
-    color: rgb(0, 0, 0);
-    margin-top: 25px;
-    margin-left: 10px;
+a:hover{
+    background-color: rgb(153, 153, 153);
+    color: black;
 }
 
-#divIconsNav{
-    width: 300px;
+
+.divIconsNav{
     display: flex;
     justify-content: space-between;
 }
-
-#iconNav{
+/*
+.iconNav{
     padding-top: 20px;
     height: 30px;
     width: 30px;
 }
 
-#divNomeImg{
+.divNomeImg{
     display: flex;
-    height: 60px;
+    height: 50px;
     width: 160px;
 }
+*/
+.Nome{
+    text-decoration: none;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
